@@ -8,17 +8,21 @@ import { authGuard } from './_guards/auth.guard';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { adminGuard } from './_guards/admin.guard';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     {
         path: '',
         runGuardsAndResolvers: 'always',
+        canActivate:[authGuard],
         children: [
             { path: 'members', component: MemberListComponent },
             { path: 'members/:id', component: MemberDetailComponent },
             { path: 'list', component: ListsComponent },
             { path: 'messages', component: MessagesComponent },
+            { path: 'admin', component: AdminPanelComponent, canActivate: [adminGuard]}
         ]
     },
     { path: 'errors', component: TestErrorsComponent },
