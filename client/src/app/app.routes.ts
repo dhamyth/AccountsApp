@@ -1,28 +1,22 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { MemberListComponent } from './members/member-list/member-list.component';
-import { MemberDetailComponent } from './members/member-detail/member-detail.component';
-import { ListsComponent } from './lists/lists.component';
-import { MessagesComponent } from './messages/messages.component';
 import { authGuard } from './_guards/auth.guard';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { adminGuard } from './_guards/admin.guard';
+import { CurrentBalanceComponent } from './current-balance/current-balance.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     {
         path: '',
         runGuardsAndResolvers: 'always',
-        canActivate:[authGuard],
+        canActivate: [authGuard],
         children: [
-            { path: 'members', component: MemberListComponent },
-            { path: 'members/:id', component: MemberDetailComponent },
-            { path: 'list', component: ListsComponent },
-            { path: 'messages', component: MessagesComponent },
-            { path: 'admin', component: AdminPanelComponent, canActivate: [adminGuard]}
+            { path: 'current-balance', component: CurrentBalanceComponent },
+            { path: 'admin', component: AdminPanelComponent, canActivate: [adminGuard] }
         ]
     },
     { path: 'errors', component: TestErrorsComponent },
