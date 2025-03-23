@@ -13,13 +13,13 @@ public class AccountBalanceController(IMapper mapper,
         IAccountBalancesRepository accountBalancesRepository): BaseApiController
 {
     [HttpGet("balance")]
-    public async Task<ActionResult<AccountBalancesGetWithoutDateDto>> GetAccountBalances()
+    public async Task<ActionResult<AccountBalancesGetWithDateDto>> GetAccountBalances()
     {
         var accountBalance = await accountBalancesRepository.GetAccountBalancesAsync();
 
         if (accountBalance == null) return NotFound("No balance");
 
-        return mapper.Map<AccountBalancesGetWithoutDateDto>(accountBalance);
+        return mapper.Map<AccountBalancesGetWithDateDto>(accountBalance);
         
     }
 

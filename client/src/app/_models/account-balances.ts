@@ -5,4 +5,5 @@ export interface AccountBalances {
     ceoCar: number;
     marketing: number;
     parkingFines: number;
+    uploadDate: Date;
 }

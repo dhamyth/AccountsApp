@@ -1,13 +1,13 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { AccountBalances } from '../_models/account-balances';
 import { ToastrService } from 'ngx-toastr';
 import { AccountBalancesService } from '../_services/account-balances.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-current-balance',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './current-balance.component.html',
   styleUrl: './current-balance.component.css'
 })
