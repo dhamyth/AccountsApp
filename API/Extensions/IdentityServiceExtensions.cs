@@ -37,7 +37,10 @@ public static class IdentityServiceExtensions
         });
 
         services.AddAuthorizationBuilder()
-             .AddPolicy(MemberPolicy.RequireAdminRole, policy => policy.RequireRole(MemberRole.Admin));
+             .AddPolicy(MemberPolicy.RequireAdminRole, policy => 
+                    policy.RequireRole(MemberRole.Admin))
+             .AddPolicy(MemberPolicy.RequireAdminOrMemberRole, policy =>
+                    policy.RequireRole(MemberRole.Admin,MemberRole.Member));
 
         return services;
     }

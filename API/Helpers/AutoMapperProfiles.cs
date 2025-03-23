@@ -19,5 +19,6 @@ public class AutoMapperProfiles:Profile
                 .ForMember(dest => dest.ParkingFines, opt => opt.MapFrom(src => src["Parking fines"]));
         CreateMap<AccountBalancesPostDto,AccountBalances>();
         CreateMap<AccountBalances,AccountBalancesGetWithDateDto>();
+        CreateMap<AccountBalances,AccountBalancesGetWithoutDateDto>();
     }
 }

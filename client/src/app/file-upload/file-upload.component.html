@@ -1,0 +1,18 @@
+<div>
+    <h2>Upload Account Balance File</h2>
+    <input type="file" (change)="onFileSelected($event)" accept=".txt,.tsv,.xlsx,.xls" />
+    <button (click)="uploadFile()">Upload</button>
+  
+    <div *ngIf="errorMessage" style="color: red;">
+      {{ errorMessage }}
+    </div>
+  
+    <div *ngIf="uploadResult">
+      <h3>Saved Expenses:</h3>
+      <ul>
+        <li *ngFor="let expense of uploadResult">
+          {{ expense.category }}: {{ expense.amount }}
+        </li>
+      </ul>
+    </div>
+  </div>

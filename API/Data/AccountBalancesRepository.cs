@@ -3,6 +3,7 @@ using API.DTOs;
 using API.Entities;
 using API.Interfaces;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Data;
 
@@ -20,4 +21,11 @@ public class AccountBalancesRepository(DataContext context, IMapper mapper) : IA
         return  accountBalances;
     }
 
+    public async Task<AccountBalances> GetAccountBalancesAsync()
+    {
+        var accountBalances = await context.AccountBalances
+                .OrderByDescending(a=>a.Id).FirstOrDefaultAsync();
+        
+        return accountBalances!;
+    }
 }

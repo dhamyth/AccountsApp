@@ -1,7 +1,9 @@
 using System.Text;
 using API.DTOs;
 using API.Interfaces;
+using API.Utils;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
 
@@ -10,6 +12,7 @@ namespace API.Controllers;
 public class FileUploadController(IMapper mapper,
         IAccountBalancesRepository accountBalancesRepository) : BaseApiController
 {
+    [Authorize(Policy = MemberPolicy.RequireAdminRole)]
     [HttpPost("upload")]
     public async Task<ActionResult<AccountBalancesGetWithDateDto>> UploadFile(IFormFile file)
     {
