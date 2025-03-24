@@ -17,7 +17,7 @@ public class AccountBalanceController(IMapper mapper,
     {
         var accountBalance = await accountBalancesRepository.GetAccountBalancesAsync();
 
-        if (accountBalance == null) return NotFound("No balance");
+        if (accountBalance == null) return Ok(new {});
 
         return mapper.Map<AccountBalancesGetWithDateDto>(accountBalance);
         

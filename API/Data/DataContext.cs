@@ -19,11 +19,26 @@ public class DataContext(DbContextOptions options) : IdentityDbContext<AppUser, 
              .WithOne(u => u.User)
              .HasForeignKey(ur => ur.UserId)
              .IsRequired();
- 
-         builder.Entity<AppRole>()
-             .HasMany(ur => ur.UserRoles)
-             .WithOne(u => u.Role)
-             .HasForeignKey(ur => ur.RoleId)
-             .IsRequired();
+
+        builder.Entity<AppRole>()
+            .HasMany(ur => ur.UserRoles)
+            .WithOne(u => u.Role)
+            .HasForeignKey(ur => ur.RoleId)
+            .IsRequired();
+
+        builder.Entity<AccountBalances>(entity =>
+        {
+            entity.Property(t => t.RnD)
+                .HasColumnType("decimal(18,2)");
+            entity.Property(t => t.Canteen)
+                .HasColumnType("decimal(18,2)");
+            entity.Property(t => t.CeoCar)
+                .HasColumnType("decimal(18,2)");
+            entity.Property(t => t.Marketing)
+                .HasColumnType("decimal(18,2)");
+            entity.Property(t => t.ParkingFines)
+                .HasColumnType("decimal(18,2)");
+                
+        });
     }
 }
