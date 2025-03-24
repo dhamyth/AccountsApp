@@ -81,8 +81,8 @@ The application comes with two pre-configured users for testing purposes:
 
 | Role       | Username       | Password       | Description                     |
 |------------|----------------|----------------|---------------------------------|
-| Normal     | `lisa`         | `Pa$$w0rd`     | A standard user with basic access. |
-| Admin      | `admin`        | `Pa$$w0rd`    | An admin user with full access.    |
+| Normal     | `lisa`         | via email      | A standard user with basic access. |
+| Admin      | `admin`        | via email      | An admin user with full access.    |
 
 
 ## Published URL
