@@ -8,6 +8,8 @@ This app will give brief overview about account balances of the company
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
+- [Default Users](#default-users)
+- [Published URL](#published-url)
 
 ## Technologies
 
@@ -73,3 +75,17 @@ Before you begin, ensure you have the following installed:
 3. **Access the Application**
 - Open your browser and navigate to http://localhost:4200 to view the Angular frontend.
 - The frontend will communicate with the .NET backend API.
+
+## Default Users
+The application comes with two pre-configured users for testing purposes:
+
+| Role       | Username       | Password       | Description                     |
+|------------|----------------|----------------|---------------------------------|
+| Normal     | `lisa`         | `Pa$$w0rd`     | A standard user with basic access. |
+| Admin      | `admin`        | `Pa$$w0rd`    | An admin user with full access.    |
+
+
+## Published URL
+
+The application is deployed and accessible at the following URL:
+ https://accounting-app-gbffgvaqhkdaf0d3.southindia-01.azurewebsites.net/
